@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+        <!-- Latest compiled and minified CSS -->
+       
+        <div class="container-fluid" style="background-color:white;">
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br><br>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <form action="{% url 'feedback' %}" method="POST">
+                                    {% csrf_token %}
+                                <label for="comments"> Give Us Feedback:</label>
+                                <textarea class="form-control" type="textarea" name="msg" id="" placeholder="Your Feedback" maxlength="6000" rows="7"></textarea>
+                                  <button type="Submit" class="btn btn-success btn-flat btn-block">Submit Now</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-btn" style="margin-bottom: 100px;">
+                              
+                        </div>
+         </div>
+        {% endblock %}

@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+.slidecontainer {
+  width: 60%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px; 
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+    <div class="row">
+      <div class="col-md-7" style="height: 400px;">
+     <center>
+    <button type="button" class="btn btn-success" style="font-size: 20px;">Student</button>&nbsp;&nbsp;
+ <!--   <button type="button" class="btn btn-success" style="font-size: 20px;">Business</button>&nbsp;&nbsp;-->
+   <a href="/"><button type="button" class="btn btn-success" style="font-size: 20px;">Home</button>
+ </center> 
+ <br>
+ <br>
+<div class="row">
+<form method="POST" action="{% url 'order' %}">
+  {% csrf_token %}
+<!-- <input type="hidden" name="itemsjson" id="itemsjson"> -->
+<input type="hidden" name="amount" id="amount">
+
+  <div class="col-sm-3" >
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Small Box</h2>
+{% for my in box1%}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;:{{my.sb_price}}&nbsp;Per Month</p>
+{% endfor %}
+
+</div>
+<div class="col-sm-1">
+  <h2><label class="label label-default" id="demo3" ></label></h2>
+</div>
+<div class="col-sm-8">
+<div class="slidecontainer">
+  <br>
+  <input type="range" min="0" max="100" value="0" class="slider" id="myRange3" name="sbox">
+</div>
+</div>
+
+<script>
+
+</script>
+</div>
+<br>
+
+
+<div class="row">
+  <div class="col-sm-3" >
+<h2>&nbsp;&nbsp;&nbsp;Medium Box</h2>
+{% for my in box1%}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;:{{my.mb_price}}&nbsp;Per Month</p>
+{% endfor %}
+</div>
+<div class="col-sm-1">
+  <h2><label class="label label-default" id="demo2" ></label></h2>
+</div>
+<div class="col-sm-8">
+<div class="slidecontainer">
+  <br>
+  <input type="range" min="0" max="100" value="0" class="slider" id="myRange2" name="mbox">
+</div>
+</div>
+
+
+</div>
+<br>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-3" >
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Large Box</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;{% for my in box1 %}:{{my.lb_price}}&nbsp;Per Month{% endfor %}</p>
+</div>
+<div class="col-sm-1">
+  <h2><label class="label label-default" id="demo5" ></label></h2>
+</div>
+<div class="col-sm-8">
+<div class="slidecontainer">
+  <br>
+  <input type="range" min="0" max="100" value="0" class="slider" id="myRange5" name="lbox">
+</div>
+</div>
+
+</div>
+<br>
+
+<div class="row">
+  <div class="col-sm-3" >
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Month</h2>
+</div>
+<div class="col-sm-1">
+  <h2><label class="label label-default" id="demo4" ></label></h2>
+</div>
+<div class="col-sm-8">
+<div class="slidecontainer">
+  <br>
+  <input type="range" min="0" max="12" value="0" class="slider" id="myRange4" name="month">
+</div>
+</div>
+
+</div>
+</div>
+<br>
+<br>
+<div class="col-md-5" class="jumbotron" style="background-color: #d3d3d3; width: 38%;">
+  <br>
+  <h3><b>Storage per Month .</b></h3>
+  <br>
+  
+<font style="font-size: 20px;"><label class="label label-default" id="span_s" ></label> x small box</font><p ></p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;<span id="s_total" style="color: black; font-size: 15px;"></span>
+
+<br>
+
+<br>
+<font style="font-size: 20px;"><label class="label label-default" id="span_m"></label> x medium box</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;<span id="m_total" style="color: black; font-size: 15px;"></span>
+<br><br>
+<font style="font-size: 20px;"><label class="label label-default" id="span_l"></label> x large box</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x20b9;<span id="l_total" style="color: black; font-size: 15px;"></span>
+
+<br>
+<br>
+
+<font size="5px" color="black">Total : </font><span id="total3" name="totals" style="color: black; font-size: 20px;"></span>
+
+<br>
+<!-- <center><button class="btn-success">ORDER NOW</button></center>
+ -->
+
+<br>
+</div>
+
+</div>
+</div>
+<br>
+<script>
+var slider1 = document.getElementById("myRange3");
+var output1 = document.getElementById("demo3");
+var s = document.getElementById("span_s");
+var stot=document.getElementById("s_total");
+var mtot=document.getElementById("m_total");
+var ltot=document.getElementById("l_total");
+// var mytotal=document.getElementById("total");
+
+
+
+output1.innerHTML = slider1.value;
+s.innerHTML = slider1.value;
+
+
+
+
+
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+  s.innerHTML=this.value;
+  stot.innerHTML=this.value*{% for my in box1%}{{ my.sb_price }};{% endfor %}
+
+  
+}
+
+
+var slider2 = document.getElementById("myRange2");
+var output2 = document.getElementById("demo2");
+var m = document.getElementById("span_m");
+
+
+output2.innerHTML = slider2.value;
+m.innerHTML = slider2.value;
+
+
+
+slider2.oninput = function()
+{
+  output2.innerHTML = this.value;
+  m.innerHTML=this.value;
+  mtot.innerHTML=this.value*{% for my in box1%}{{ my.mb_price }};{% endfor %}
+
+
+
+
+
+
+}
+
+
+var slider5 = document.getElementById("myRange5");
+var output5 = document.getElementById("demo5");
+var l = document.getElementById("span_l");
+var ltot=document.getElementById("l_total");
+
+
+output5.innerHTML = slider5.value;
+l.innerHTML = slider5.value;
+
+
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value;
+  l.innerHTML = this.value;
+  ltot.innerHTML=this.value*{% for my in box1%}{{ my.lb_price }};{% endfor %}
+
+
+}
+
+var slider4 = document.getElementById("myRange4");
+var output4 = document.getElementById("demo4");
+var tot3 = document.getElementById("total3");
+
+
+output4.innerHTML = slider4.value;
+
+
+slider4.oninput = function() {
+output4.innerHTML = slider4.value;
+output4.innerHTML = this.value;
+tot3.innerHTML=(this.value*(Number(stot.innerHTML)+Number(mtot.innerHTML)+Number(ltot.innerHTML)));
+
+
+
+}
+
+console.log(document.getElementById("total3")) ;       
+
+</script>
+
+<!-- <div id="booking" class="section" style="background-color: grey;"> -->
+    <div class="section-center">
+      <!-- Modal content noo 1-->
+     
+      {{User.Username}}
+      <div class="container">
+        <div class="row">
+          <div class="booking-form">
+            <div class="form-header">
+              <h1 style="color: #4BB543;">Booking</h1>
+            </div>
+          
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Name</span>
+                    <input class="form-control" type="text" placeholder="Enter your name" name="name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Email</span>
+                    <input class="form-control" type="email" name="email" placeholder="Enter your email">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Phone</span>
+                <input class="form-control" type="number" name="phone" autocomplete="off" placeholder="Enter your phone number" required="">
+              </div>
+              <div class="form-group">
+                <span class="form-label">Pickup Location</span>
+                <input class="form-control" name="pickup_location" type="text" placeholder="Pickup Location">
+              </div>
+              <div class="form-group">
+                <span class="form-label">Zipcode</span>
+                <input class="form-control" type="text" name="zipcode" placeholder="Enter ZIP code">
+              </div>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <span class="form-label">Pickup Date</span>
+                    <input class="form-control" type="date" name="date1" required>
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <span class="form-label">Hour</span>
+                        <select class="form-control" name="hour">
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <span class="form-label">Min</span>
+                        <select class="form-control" name="minutes">
+                          <option>05</option>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>25</option>
+                          <option>30</option>
+                          <option>35</option>
+                          <option>40</option>
+                          <option>45</option>
+                          <option>50</option>
+                          <option>55</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <span id="finaltotal"></span>
+<div class="form-btn">
+    <input type="submit" id="cart" class="btn btn-success btn-block btn-flat" value="Book Now">
+</div>
+</form>
+ <!--  </div> -->
+ <!--  <font size="5px" color="black">Total : </font><span id="total3" name="totals" style="color: black; font-size: 20px;"></span>
+  <script type="text/javascript">
+$('#amount').val($('#total3').html())
+</script> -->
+
+
+{% endblock %}
+
+{% block js %}
+
+
+<script>
+  console.log("working")
+  
+   $(document).ready(function(){
+      $("#cart").click(function(){
+      var text1=document.getElementById("total3").innerText;
+
+      localStorage.setItem("view",text1);
+      document.getElementById("amount").value=localStorage.getItem("view");
+
+      console.log("amount" + document.getElementById("amount").value)
+    });
+      console.log("amount1" + document.getElementById("amount").value);
+      // document.getElementById("amount").innerText=localStorage.getItem("view");
+  });
+      
+     
+
+// $('#amount').val($('#total3').html())
+// console.log(document.getElementById("amount").innerText);
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

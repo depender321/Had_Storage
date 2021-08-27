@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+  <!--Banner-->
+  <div class="banner" style="background-color: grey;">
+    <div class="bg-color">
+      <div class="container">
+        <div class="row">
+          <div class="banner-text text-center">
+            <div class="text-border">
+              <h2 class="text-dec">HAD STORAGE</h2>
+            </div>
+            <div class="intro-para text-center quote">
+              <p class="big-text">SELF STORAGE WITHOUT   THE HASSLE</p>
+              <h3 style="color: white;">  We Collect. We Store. We Deliver.</h3>
+              <a href="{% url 'pricing' %}" class="btn get-quote">GET A QUOTE</a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Banner-->
+  <!--Feature-->
+  <section id="feature" class="section-padding" style="background-color: white;">
+    <div class="container" >
+      <div class="row" >
+        <div class="header-section text-center">
+          <h2>STORAGE HAS NEVER BEEN SO EASY.<br>
+              JUST FOLLOW OUR FOUR SIMPLE STEPS.</h2>
+          <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'img/p3.jpg' %}" style="height: 70%;width: 70%;"></img><br><br>
+                <p class="text-center" style="color: black; font-size: 20px;">1. YOU BOOK...<br>
+                  on your mobile,
+                  tablet or PC</p>
+           
+          </div>
+          <div class="col-md-3">
+             <img src=" {% static 'img/p4.jpg' %}" style="height: 75%;width: 75%;"></img><br><br>
+              <p class="text-center" style="color: black; font-size: 20px;">2. WE COLLECT...<br>
+                  from anywhere</p>
+             
+           </div>
+           <div class="col-md-3">
+              <img src="{% static 'img/p5.jpg' %}" style="height: 52%;width: 52%;"></img><br><br>
+               <p class="text-center" style="color: black; font-size: 20px;">3. WE STORE...<br>
+                        in one of our secure
+                        storage facilities</p>
+            </div>
+            <div class="col-md-3">
+               <img src="{% static 'img/p7.jpg' %}" style="height: 70%;width: 70%;"></img><br><br>
+                <p class="text-center" style="color: black; font-size: 20px;">4. WE DELIVER...<br>At your doorstep</p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ feature-->
+ 
+  <!--work-shop-->
+  <section id="work-shop" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>WHY USE HAD STORAGE?</h2>
+          <h3>I have saved over £80/month by moving my storage to <br>HAD STORAGE. The whole process from start to finish was <br> executed brilliantly. I had some queries during the process <br> just because it was so different to the ways of traditional <br> storage but the customer experience team were always <br> quick to respond to me by both email and phone and kept <br> everything moving swimmingly. I’ve recommended <br> HAD STORAGE to everyone I know as it is a unique and <br> innovative idea that makes life much easier and is delivered <br> through a friendly company with a caring attitude.</h3>
+          <hr class="bottom-line">
+       
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ work-shop-->
+  
+  <!--Courses-->
+  <section id="courses" class="section-padding" style="background-color: white;">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>HASSLE-FREE STORAGE WITH HAD STORAGE</h2>
+          <br>
+          <br>
+          <img src="{% static 'img/p5.jpg' %}" style="height: 10%; width: 20%;">
+          <br>
+          <br>
+          <h4 style="color: black;">
+              Why choose HAD STORAGE storage over traditional self-storage units?
+          </h4>
+          <br>
+          <h4>✓ We collect from your door</h4>
+          <h4>✓ You can start storing from just one box or other item</h4>
+          <h4>✓ We track each of your boxes individually</h4>
+          <h4>✓ We save you £s on storage and van-hire</h4>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <!--/ Courses-->
+  <!--Pricing-->
+  <section id="pricing" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>TIPS ON HOW TO LIVE A BIGGER LIFE</h2>
+         
+          <hr class="bottom-line">
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="price-table">
+            <!-- Plan  -->
+            <div class="pricing-head">
+              <img src= "{% static 'img/p2.jpg' %}" style="height: 70%; width: 100%;">
+               
+              <h3 style="color: black;">SELF STORAGE PRICE COMPARISON – SAVING YOU TIME AND MONEY!</h3>
+            <h2>We make storage easy by removing the need to transport your things to a self storage unit… And we make storage cheap, as you…</h2>
+            <br>
+            </div>
+
+            <!-- Plean Detail -->
+            <div class="price-in mart-15">
+              <a href="#" class="btn btn-bg green btn-block">PURCHACE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="price-table">
+            <!-- Plan  -->
+            <div class="pricing-head">
+              <img src="{% static 'img/p5.jpg' %}" style="height: 40%; width: 72%;">
+              
+              <h3 style="color: black;">DONATE TO OXFAM WITH HAD STORAGE</h3>
+              <h2>HAD STORAGE are in partnership with Oxfam to offer a convenient way for our customers to donate to the charity. Here’s how it works:</h2>
+              <br>
+            
+
+            </div>
+
+            <!-- Plean Detail -->
+            <div class="price-in mart-15">
+              <a href="#" class="btn btn-bg yellow btn-block">PURCHACE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="price-table">
+            <!-- Plan  -->
+            <div class="pricing-head">
+             <img src="{% static 'img/p7.jpg' %}" style="height: 70%; width: 100%;">
+              <span class="fa fa-inr curency"></span> <h3 style="color: black;">7 ITEMS BETTER OFF IN STORAGE WHEN SELLING YOUR HOME</h3>
+              <h2>Selling your home can be an emotional process and common sense can often get thrown out of the window. When you put your home…</h2>
+            </div>
+
+            <!-- Plean Detail -->
+            <div class="price-in mart-15">
+              <a href="#" class="btn btn-bg red btn-block">PURCHACE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!--/ Pricing-->
+  {% endblock %}

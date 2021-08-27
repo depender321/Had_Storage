@@ -1,0 +1,56 @@
+  {% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+  <div class="login-box-body">
+           <center><h2 class="modal-title text-center form-title" style="color: #00ad5f;">LOGIN</h2></p></center>
+            <center>
+              <br>
+               {% if error_message %}<p id="error">{{ error_message }}</p> {% endif %}
+            <div class="form-group">
+              <form action="{% url 'login' %}" method="POST" style="width: 400px;">
+                    {% csrf_token %} 
+
+                <div class="form-group has-feedback">
+
+                  <div class="form-group has-feedback">
+               <input class="form-control" name="username" placeholder="Email" type="text" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginid"></span>
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <!--- password -->
+                  <input class="form-control" placeholder="Password" type="password"  name="password" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!---Alredy exists  ! -->
+                 <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox icheck">
+
+                      <label>
+                                <input type="checkbox" id="loginrem" > Remember Me
+                              </label>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success btn-block btn-flat" onclick="userlogin()">LOGIN</button>
+                    <br>
+                      <a href="{% url 'registration' %}" style="">Forget Password ?</a>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          </center>
+        </div>
+
+{% endblock %}

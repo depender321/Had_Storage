@@ -1,0 +1,36 @@
+/*body {
+  background-image: url('images/floor.jpg');
+  background-size: cover;
+  background-color: #000;
+  background-repeat: no-repeat;
+}*/
+
+.info {
+  background-color: #966f33;
+  width: 12%;
+  margin-left: 64%;
+  height: 100%;
+  position: absolute;
+  margin-top: -208px;
+  box-shadow: 0px 0px 35px 10px #000;
+}
+
+.logo {
+  background-image: url('http://p5.storage.canalblog.com/52/11/1047275/80695728_o.png');
+  width: 220px;
+  height: 220px;
+  position: relative;
+  background-size: 100% 100%;
+  margin-top: -20px;
+  margin-left: -200px;
+  animation: rotation 2s linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}

@@ -1,0 +1,192 @@
+ {% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+ <br><br>
+ <br><br>
+ <br><br>
+<div class="container">
+<center><h2 style="color: black;"><b>My Details</b></h2></center>
+      <center> <li><a> <h3>You are currently logged in as: {{user.first_name}}</h3></a></li></center>
+
+
+
+ <!--  <h2>Personal Details</h2> -->
+  <!-- Trigger the modal with a button --><br><br><br><center>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Personal Details</button>
+</center>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+ <!--  -->
+         
+
+ <!-- Modal content no 1-->
+  <form action="{% url 'profile' %}" method="POST">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center form-title">Registration</h4>
+        </div>
+        <div class="modal-body padtrbl">
+
+          <div class="login-box-body">
+            <div class="form-group">
+                
+                <div class="form-group has-feedback">
+
+                  <div class="form-group has-feedback">
+                <input class="form-control" placeholder="FIRST NAME" name="username" type="text" required value="{{ registration.first_name}}">
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+
+                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                <input class="form-control" placeholder="LAST NAME"  name="lastname" type="text" autocomplete="off" required value="{{ registration.last_name}}">
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                  <!----- username -------------->
+                  <input class="form-control" placeholder="email" name="email" input type="email" autocomplete="off" required value="{{ registration.username}}">
+                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <!----- password -------------->
+                  <input class="form-control" placeholder="Password" name="password" type="password" autocomplete="off" required value="{{ registration.password}}">
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!--
+                  <input class="form-control" placeholder=" Confirm Password" id="conpsw" name="conpsw" type="password" autocomplete="off" />
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginpsw"></span>
+                  -->
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                
+                
+
+                 
+
+
+  
+
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox icheck">
+                     
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success btn-block btn-flat" value="Sign In">Update</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--/ Modal box-->
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+       
+
+
+
+
+ <!-- Trigger the modal with a button --><br>
+  <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">change password</button></center>
+
+
+
+    <!--Modal box 2-->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+      <!-- Modal content no 1-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center form-title">Change Password</h4>
+        </div>
+        <div class="modal-body padtrbl">
+
+            
+
+                <div class="form-group has-feedback">
+
+                  <div class="form-group has-feedback">
+                <input class="form-control" placeholder="current Password" type="password"  name="password" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <!--- password -->
+                  <input class="form-control" placeholder="new Password" type="password"  name="password" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!---Alredy exists  ! -->
+                 <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox icheck">
+
+                      
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success btn-block btn-flat" onclick="userlogin()">UPDATE</button>
+                    <br>
+                   
+                     
+                  </div>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<center><h3><li class="btn btn-info btn-lg" style="font-size: 20px; width: 170px;"><a href="{% url 'logout' %}">LOGOUT</a></li></h3></center>
+
+
+ <br>
+                    <br>
+                    <br>
+
+
+{% endblock %}  
+
+
+
+
+
+
+
+
+
+
+

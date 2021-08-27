@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<br><br>
+<div class="container-fluid" style="width:500px; background-color: white;">
+  {% if messages %}
+<ul>
+  {% for message in messages %}
+     <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<center>
+<form action="{% url 'register' %}" method="POST" style="width: 400px;">
+    {% csrf_token %}
+          <br>
+          <h2 class="modal-title text-center form-title" style="color: #00ad5f;">Registration</h2>
+        
+        
+            <div class="form-group">
+                
+                <div class="form-group has-feedback">
+
+                  <div class="form-group has-feedback">
+                <input class="form-control" placeholder="FIRST NAME" name="first_name" type="text" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+
+                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                <input class="form-control" placeholder="LAST NAME"  name="last_name" type="text" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                  <!----- username -------------->
+                  <input class="form-control" placeholder="email" name="mail" input type="email" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <!----- password -------------->
+                  <input class="form-control" placeholder="Password" name="password" type="password" autocomplete="off" required>
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"></span>
+                  <!--
+                  <input class="form-control" placeholder=" Confirm Password" id="conpsw" name="conpsw" type="password" autocomplete="off" />
+                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginpsw"></span>
+                  -->
+                  <!---Alredy exists  ! -->
+                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+              
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox icheck">
+                      <label>
+                                <input type="checkbox" id="loginrem" > Remember Me
+                              </label>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success btn-block btn-flat" value="Sign In">Sign Up</button>
+                  </div>
+                </div>
+              </form>
+              </center>
+</div>
+{% endblock %}
